@@ -1,28 +1,13 @@
-// Your code here
-const dodger = document.getElementById("dodger");
+document.addEventListener("DOMContentLoaded", () => {
+    // Remove the main element
+    const main = document.getElementById('main');
+    if (main) {
+        main.remove();
+    }
 
-function moveDodgerLeft() {
-  const leftNumbers = dodger.style.left.replace("px", "");
-  const left = parseInt(leftNumbers, 10);
-
-  if (left > 0) {
-    dodger.style.left = `${left - 1}px`;
-  }
-}
-
-function moveDodgerRight() {
-  const leftNumbers = dodger.style.left.replace("px", "");
-  const left = parseInt(leftNumbers, 10);
-
-  if (left < 360) { // 400px (game field width) - 40px (dodger width)
-    dodger.style.left = `${left + 1}px`;
-  }
-}
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowLeft") {
-    moveDodgerLeft();
-  } else if (e.key === "ArrowRight") {
-    moveDodgerRight();
-  }
+    // Create a new h1 element
+    const newHeader = document.createElement('h1');
+    newHeader.id = 'victory';
+    newHeader.innerHTML = 'YOUR-NAME is the champion'; // Replace YOUR-NAME with your actual name
+    document.body.appendChild(newHeader);
 });
