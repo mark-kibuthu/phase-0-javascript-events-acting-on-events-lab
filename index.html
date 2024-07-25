@@ -1,52 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dodger Game</title>
-    <style>
-        #dodger {
-            width: 40px;
-            height: 20px;
-            background-color: #FF69B4;
-            position: absolute;
-            bottom: 0px;
-            left: 180px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Lab</title>
+  <style>
+    #game {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+
+    #dodger {
+      position: absolute;
+      bottom: 0px;
+      left: 180px;
+      width: 40px;
+      height: 20px;
+      background-color: #FF69B4;
+    }
+  </style>
 </head>
 <body>
+  <div id="game">
     <div id="dodger"></div>
-    <script>
-        // Move dodger left
-        function moveDodgerLeft() {
-            const dodger = document.getElementById('dodger');
-            const leftNumbers = dodger.style.left.replace('px', '');
-            const left = parseInt(leftNumbers, 10);
-
-            if (left > 0) {
-                dodger.style.left = `${left - 1}px`;
-            }
-        }
-
-        // Move dodger right
-        function moveDodgerRight() {
-            const dodger = document.getElementById('dodger');
-            const leftNumbers = dodger.style.left.replace('px', '');
-            const left = parseInt(leftNumbers, 10);
-
-            if (left < 360) { // Assuming the container width is 400px
-                dodger.style.left = `${left + 1}px`;
-            }
-        }
-
-        // Add event listener for keydown
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                moveDodgerLeft();
-            }
-            if (e.key === 'ArrowRight') {
-                moveDodgerRight();
-            }
-        });
-    </script>
+  </div>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
