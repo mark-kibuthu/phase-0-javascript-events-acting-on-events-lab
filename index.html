@@ -1,16 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Rock Dodger! (Beta)</title>
-  <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Dodger Game</title>
+    <style>
+        #dodger {
+            width: 40px;
+            height: 20px;
+            background-color: #FF69B4;
+            position: absolute;
+            bottom: 0px;
+            left: 180px;
+        }
+    </style>
 </head>
 <body>
-  <div id="game">
-    <div id="dodger" style="bottom: 0px; left: 180px;"></div>
-  </div>
-  <script type="text/javascript" src="index.js"></script>
+    <div id="dodger"></div>
+    <script>
+        // Move dodger left
+        function moveDodgerLeft() {
+            const dodger = document.getElementById('dodger');
+            const leftNumbers = dodger.style.left.replace('px', '');
+            const left = parseInt(leftNumbers, 10);
+
+            if (left > 0) {
+                dodger.style.left = `${left - 1}px`;
+            }
+        }
+
+        // Move dodger right
+        function moveDodgerRight() {
+            const dodger = document.getElementById('dodger');
+            const leftNumbers = dodger.style.left.replace('px', '');
+            const left = parseInt(leftNumbers, 10);
+
+            if (left < 360) { // Assuming the container width is 400px
+                dodger.style.left = `${left + 1}px`;
+            }
+        }
+
+        // Add event listener for keydown
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                moveDodgerLeft();
+            }
+            if (e.key === 'ArrowRight') {
+                moveDodgerRight();
+            }
+        });
+    </script>
 </body>
 </html>
